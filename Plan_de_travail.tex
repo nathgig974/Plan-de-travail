@@ -1,0 +1,115 @@
+\documentclass[10pt]{article} 
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=1cm]{geometry}
+\usepackage{graphicx}
+\usepackage{pstricks,pst-plot,pst-eucl} 
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{multicol}
+\usepackage[framed]{ntheorem}
+\usepackage[frenchb]{babel}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1cm}}
+\newcommand{\bulle}[3]{
+   \psframe[linewidth=1mm,framearc=0.05,linecolor=#1](0,0)(5,3)
+   \rput(2.5,2.5){#2}
+   \rput(2.5,1.25){\begin{minipage}{4.5cm}
+      {\small\darkgray #3}
+   \end{minipage}}}
+   
+
+\begin{document}
+
+\begin{center}
+   \begin{pspicture}(0,0)(19,12) 
+   
+      \rput(9.5,6){\large TITRE DU CHAPITRE} %bulle centrale
+      
+      \rput[l](0,9){%bulle NO : connaissances et compétences
+         \bulle
+            {teal}
+            {Je connais mon cours}
+            {$\to$ Connaissance 1 \hfill \square \par
+             $\to$ Compétence 2 \hfill \square \par
+             $\to$ Compétence 3 \hfill \square}
+          \psline[linewidth=2mm,linecolor=teal]{->}(5,0)(7,-1.5)
+      }
+         
+      \rput[l](14,9){%bulle NE : QR codes d'aide vidéo
+         \bulle
+            {teal}
+            {Aide en vidéo}
+            {test}
+         \psline[linewidth=2mm,linecolor=teal]{->}(0,0)(-2,-1.5)
+      }
+      
+      \rput[l](7,9){%bulle N : compétence 1
+         \bulle
+            {blue}
+            {Compétence 1}
+            {Exercice 1 \hfill $\star$ \hfill \square \par
+             Exercice 2 \hfill $\star\star$ \hfill \square \par
+             Exercice 3 \hfill $\star\star$ \hfill \square}
+          \psline[linewidth=2mm,linecolor=blue]{->}(2.5,0)(2.5,-1.5)
+      }
+         
+      \rput[l](14,4.5){%bulle E : compétence 2
+         \bulle
+            {blue}
+            {Compétence 2}
+            {Exercice 4 \hfill $\star$ \hfill \square \par
+             Exercice 5 \hfill $\star\star$ \hfill \square \par
+             Exercice 6 \hfill $\star\star$ \hfill \square \par
+             Exercice 7 \hfill $\star\star\star$ \hfill \square}
+          \psline[linewidth=2mm,linecolor=blue]{->}(0,1.5)(-1.5,1.5)
+      }
+
+      \rput[l](7,0){%bulle S : compétence 3
+         \bulle
+            {blue}
+            {Compétence 3}
+            {Exercice 8 \hfill $\star$ \hfill \square \par
+             Exercice 9 \hfill $\star\star$ \hfill \square \par
+             Exercice 10 \hfill $\star\star\star$ \hfill \square}
+          \psline[linewidth=2mm,linecolor=blue]{->}(2.5,3)(2.5,4.5)
+      }
+      
+      \rput[l](0,4.5){%bulle O : compétence 4
+         \bulle
+            {blue}
+            {Compétence 4}
+            {Exercice 11 \hfill $\star$ \hfill \square}
+         \psline[linewidth=2mm,linecolor=blue]{->}(5,1.5)(6.5,1.5)
+      }  
+             
+      \rput[l](14,0){%bulle SE : activité récréative
+         \bulle
+            {red}
+            {Activité récréative}
+            {test}
+         \psline[linewidth=2mm,linecolor=red]{->}(0,3)(-2,4.5)
+      }  
+         
+      \rput[l](0,0){%bulle SO : questions flash
+         \bulle
+            {red}
+            {Questions flash}
+            {\psline[linecolor=blue](2.5,-0.5)(3,0.5)
+             \rput(3.5,0){\Huge\blue 5}}
+          \psline[linewidth=2mm,linecolor=red]{->}(5,3)(7,4.5)
+       }
+       
+   \end{pspicture}
+\end{center}
+
+
+
+\end{document}
