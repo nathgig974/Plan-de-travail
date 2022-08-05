@@ -1,0 +1,116 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+
+\documentclass[10pt]{article} 
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,margin=1cm]{geometry}
+\usepackage{graphicx}
+\usepackage{pstricks} 
+\usepackage{amssymb}
+\usepackage[frenchb]{babel}
+
+
+\newcommand{\bulle}[3]{
+   \psframe[linewidth=1mm,framearc=0.1,linecolor=#1](0,0)(5,3)
+   \psline[linecolor=#1](0,2.2)(5,2.2)
+   \rput(2.5,2.6){#2}
+   \rput(2.5,1.1){\begin{minipage}{4cm}
+                           {\small\darkgray #3}
+                         \end{minipage}}}
+   
+\newcommand{\bullecours}[3]{
+   \psframe[linewidth=1mm,framearc=0.1,linecolor=#1](0,0)(13,3)
+   \psline[linecolor=#1](0,2.2)(13,2.2)
+   \rput(6.5,2.6){#2}
+   \rput(6.5,1.1){\begin{minipage}{12cm}
+                        {\small\darkgray #3}
+                      \end{minipage}}}
+   
+\newcommand{\bulleQR}[3]{
+   \psframe[linewidth=1mm,framearc=0.1,linecolor=#1](0,0)(4,7.5)
+   \psline[linecolor=#1](0,6.7)(4,6.7)
+   \rput(2,7.1){#2}
+   \rput(2,3.35){\begin{minipage}{3.5cm}
+                           \begin{center}
+                              {\small\darkgray #3}
+                           \end{center}
+                         \end{minipage}}}
+   
+\definecolor{B1}{cmyk}{0.00, 1.00, 0.60, 0.40}
+\definecolor{A1}{cmyk}{1.00, 0.00, 0.00, 0.50}
+
+
+\begin{document}
+
+\begin{center}
+   \begin{pspicture}(0,0)(19,12) 
+      \psset{fillstyle=solid}
+      
+      \rput(9.5,6){\large TITRE DU CHAPITRE} %bulle centrale
+      
+      \rput[l](0,9){%bulle NNO : connaissances et compétences
+         \pspolygon[fillcolor=A1,linecolor=A1](5.7,0)(8.5,-1.5)(6.3,0)
+         \bullecours
+            {A1}
+            {Je connais mon cours}
+            {$\to$ Connaissance ou compétence 1 : \hfill \square \par
+             $\to$ Compétence ou connaissance 2 : \hfill \square \par
+             $\to$ Compétence ou connaissance 3 : \hfill \square}        
+      }
+         
+      \rput[l](15,4.5){%bulle ENE : Aide vidéo
+         \pspolygon[fillcolor=A1,linecolor=A1](0,3.55)(-2,2.5)(0,3.95)
+         \bulleQR
+            {A1}
+            {Aide en vidéo}
+            {\includegraphics[width=2.4cm]{QRcode} \par
+             Vidéo 1 \par \medskip
+             \includegraphics[width=2.4cm]{QRcode} \par
+             Vidéo 2}
+      }
+      
+      \rput[l](0,4.5){%bulle O : Questions flash
+         \pspolygon[fillcolor=orange,linecolor=orange](5,1.35)(6.5,1.5)(5,1.65)
+         \bulle
+            {orange}
+            {Questions flash}
+            {\psline[linecolor=darkgray](2.5,-0.5)(3,0.5)
+             \rput(3.5,0){{\darkgray\Huge 5}}}
+      } 
+      
+      \rput[l](0,0){%bulle SO : Compétence 1
+         \pspolygon[fillcolor=B1,linecolor=B1](5,2)(7.5,4.5)(5,2.4)
+         \bulle
+            {B1}
+            {Compétence 1}
+            {Exercice 1 \hfill $\star$ \hfill \square \par
+             Exercice 2 \hfill $\star\star$ \hfill \square \par
+             Exercice 3 \hfill $\star\star$ \hfill \square}
+      }
+
+      \rput[l](7,0){%bulle S : compétence 2
+         \pspolygon[fillcolor=B1,linecolor=B1](2.35,3)(2.5,4.5)(2.65,3)
+         \bulle
+            {B1}
+            {Compétence 2}
+            {Exercice 4 \hfill $\star$ \hfill \square \par
+             Exercice 5 \hfill $\star\star$ \hfill \square}
+      }
+             
+      \rput[l](14,0){%bulle SE : compétence 3
+          \pspolygon[fillcolor=B1,linecolor=B1](0,2)(-2.5,4.5)(0,2.4)
+          \bulle
+            {B1}
+            {Compétence 3}
+            {Exercice 6 \hfill $\star$ \hfill \square \par
+             Exercice 7 \hfill $\star\star$ \hfill \square \par
+             Exercice 8 \hfill $\star\star\star$ \hfill \square \par
+             Exercice 9 \hfill $\star\star\star$ \hfill \square}
+         }  
+                
+   \end{pspicture}
+\end{center}
+
+
+
+\end{document}
